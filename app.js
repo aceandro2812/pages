@@ -36,7 +36,7 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 const sessionStore = new MySQLStore({
-    host: 'localhost',
+    host: 'jatin.chzjgzr6vsty.ap-south-1.rds.amazonaws.com',
     port: 3306,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
@@ -66,7 +66,7 @@ app.use('/', require('./routes'));
 
 // syncing schema and starting server 
 sequelize.sync({
-        // alter: true
+        alter: true
     })
     .then(() => {
         return console.log("Successfully connected to database");
@@ -77,3 +77,6 @@ sequelize.sync({
         });
     })
     .catch(err => console.log(err));
+// app.listen(port, () => {
+//                 console.log(`App listening at http://${host}:${port}`);
+//             });

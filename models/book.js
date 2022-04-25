@@ -8,7 +8,7 @@ const Author = require('./author');
 
 const Book = sequelize.define('book', {
     ISBN: {
-        type: DataTypes.BIGINT(13),
+        type: DataTypes.INTEGER,
         primaryKey: true,
     },
     title: {
@@ -50,14 +50,14 @@ const Book = sequelize.define('book', {
     },
     frontImage: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         validate: {
             notEmpty: true
         }
     },
     backImage: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         validate: {
             notEmpty: true
         }
